@@ -109,7 +109,7 @@ async function onFacturar () {
   try {
     loading.value = true;
     const response: unknown = await createInvoice({
-      quantity: totalPoints.value + 20,
+      quantity: totalPoints.value,
       date: new Date().toISOString().split('T')[0]!.toString(),
       dueDate: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30).toISOString().split('T')[0]!.toString(),
     });
