@@ -85,29 +85,9 @@
 import { createInvoice } from '@/services/alegra/alegra.service';
 import { InvoiceError } from '@/services/alegra/handle-errors';
 import { useCounterStore } from '@/stores/counter';
+import { InvoiceResponse } from '@/types/invoice';
 import { storeToRefs } from 'pinia';
 import { ref, watch } from 'vue';
-
-// Tipos para la factura
-interface InvoiceResponse {
-  id: string;
-  date: string;
-  dueDate: string;
-  status: string;
-  total: number;
-  client: {
-    id: string;
-    name: string;
-  };
-  numberTemplate: {
-    formattedNumber: string;
-  };
-  items: Array<{
-    name: string;
-    quantity: number;
-    price: number;
-  }>;
-}
 
 const store = useCounterStore();
 const showModal = ref(false);

@@ -25,8 +25,20 @@ export interface CreateInvoiceParams {
 
 interface InvoiceResponse {
   id: string
-  number: string
+  date: string
+  dueDate: string
   status: string
   total: number
-  [key: string]: unknown
+  client: {
+    id: string
+    name: string
+  }
+  numberTemplate: {
+    formattedNumber: string
+  }
+  items: Array<{
+    name: string
+    quantity: number
+    price: number
+  }>
 }
