@@ -1,0 +1,5 @@
+export const INVOICE_ENDPOINT = '/invoices'
+export const DEFAULT_CLIENT_ID = '1'
+export const DEFAULT_ITEM_ID = '1'
+export const DEFAULT_ITEM_NAME = 'carrera de imagenes'
+export const OPERATION_TYPE = 'INTERNAL_SALE'
