@@ -23,7 +23,7 @@ Este proyecto fue desarrollado como reto técnico para demostrar:
 ### 🔍 Búsqueda Inteligente de Imágenes
 
 - **Búsqueda por palabras clave** - Los usuarios pueden buscar imágenes escribiendo una palabra clave
-- **IA para mejoras de búsqueda** - Usa Gemini 2.0 Flash Lite para ofrecer 3 recomendaciones optimizadas
+- **IA para mejoras de búsqueda** - Usa Gemini 2.5 Flash Lite para ofrecer 3 recomendaciones optimizadas
 - **Resultados visuales** - Muestra imágenes relevantes de Unsplash
 
 ### 🖼️ Selección Interactiva
