@@ -5,7 +5,7 @@
       <GameSearch :word="searchState.word" :is-loading="searchState.isLoading"
         :gemini-suggestion="geminiState.suggestions" :is-gemini-suggestion-loading="geminiState.isLoading"
         @search-gemini="getImages" @search="getImages" @update:word="searchState.word = $event" />
-      <GameResults v-if="searchState.data.length > 0" :data="searchState.data" :is-loading="searchState.isLoading"
+      <GameResults :data="searchState.data" :is-loading="searchState.isLoading"
         :selected-seller="searchState.selectedSeller" :has-results="searchState.data.length > 0"
         @select="handleSellerSelect" />
       <GameNoResults v-if="searchState.isError" />
@@ -69,6 +69,7 @@ async function getImages (geminiWord?: string) {
   resetSearchState()
   searchState.value.word = geminiWord || searchState.value.word
   searchState.value.isLoading = true
+  searchState.value.data = []
 
   try {
     await getSuggestion()
@@ -83,6 +84,7 @@ async function getImages (geminiWord?: string) {
 
 async function getSuggestion () {
   const word = searchState.value.word.trim()
+  geminiState.value.suggestions = []
   if (!word) return
 
   geminiState.value.isLoading = true
