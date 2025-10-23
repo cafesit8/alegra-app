@@ -69,7 +69,7 @@ La aplicación utiliza **Gemini 2.5 Flash Lite** mediante `@google/genai` para:
 | **Vue 3 + TypeScript** | Framework principal para la construcción de la app           |
 | **Pinia**              | Manejo del estado global (vendedores, puntuaciones, ganador) |
 | **Tailwind CSS**       | Estilado moderno, fluido y completamente responsive          |
-| **@google/genai**      | Integración con IA Gemini 2.0 Flash Lite                     |
+| **@google/genai**      | Integración con IA Gemini 2.5 Flash Lite                     |
 | **@unpic/vue**         | Optimización y carga eficiente de imágenes                   |
 | **js-confetti**        | Efectos visuales para celebrar al ganador                    |
 | **OGL**                | Renderizado del componente "Aurora" (fondo animado)          |
