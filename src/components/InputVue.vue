@@ -1,18 +1,22 @@
 <template>
   <div class="relative w-full">
     <div class="relative">
-      <ion-icon class="absolute top-1/2 left-3 -translate-y-1/2 text-gray-800/50" name="search-outline"></ion-icon>
+      <ion-icon aria-hidden="true" class="absolute top-1/2 left-3 -translate-y-1/2 text-gray-800/50"
+        name="search-outline"></ion-icon>
       <input v-model="internalValue" :disabled="props.disabled" type="text" placeholder="ejemplo 'casa'"
-        class="w-full border-2 border-gray-400/40 bg-transparent pl-9 p-2 rounded-lg focus:border-green-focus focus:outline-none sm:text-md text-sm transition-colors duration-200" />
+        class="w-full border-2 border-gray-400/40 bg-transparent pl-9 p-2 rounded-lg focus:border-green-focus focus:outline-none sm:text-md text-sm transition-colors duration-200"
+        aria-describedby="suggestions-help" name="search word" />
     </div>
-    <div v-if="isGeminiSuggestionLoading" class="flex flex-wrap justify-evenly gap-2 mt-3">
+    <div v-if="isGeminiSuggestionLoading" class="flex flex-wrap justify-evenly gap-2 mt-3" role="status"
+      aria-label="Cargando sugerencias">
       <div v-for="n in 3" :key="n"
-        class="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100 to-purple-200 border border-purple-300/30 py-1.5 px-4 rounded-2xl text-xs cursor-default transition-all duration-300 skeleton-pulse">
+        class="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100 to-purple-200 border border-purple-300/30 py-1.5 px-4 rounded-2xl text-xs cursor-default transition-all duration-300 skeleton-pulse"
+        aria-label="Sugerencias de búsqueda">
         <div class="w-3 h-3 bg-purple-300/60 rounded-full shimmer"></div>
         <div class="h-3 bg-purple-300/60 rounded-full shimmer" :class="getSkeletonWidth(n)"></div>
       </div>
     </div>
-    <div v-else class="flex flex-wrap justify-evenly gap-2 mt-3">
+    <div v-if="geminiSuggestion.length" class="flex flex-wrap justify-evenly gap-2 mt-3" role="option">
       <span v-for="suggestion in geminiSuggestion" :key="suggestion" @click="$emit('searchGemini', suggestion)"
         class="inline-flex items-center gap-1 bg-gradient-to-r from-purple-50 to-blue-50 border border-purple-200/60 py-1.5 px-4 rounded-2xl text-xs font-medium text-purple-700 cursor-pointer transition-all duration-300 hover:scale-105 hover:from-purple-100 hover:to-blue-100 hover:border-purple-300 hover:shadow-md hover:shadow-purple-200/40 group">
         <ion-icon name="sparkles"

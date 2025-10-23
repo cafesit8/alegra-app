@@ -1,5 +1,5 @@
 <template>
-  <div
+  <div id="card-counter"
     class="fixed right-5 z-10 bg-white py-3 px-4 rounded-lg flex flex-col gap-2 shadow-md transition-all duration-300 ease-in-out"
     :class="{
       'bottom-5': isMobile,

@@ -55,3 +55,85 @@
 body {
   @apply font-poppins;
 }
+
+.driver-popover.driverjs-theme {
+  background-color: var(--color-background-light);
+  color: #000;
+}
+
+.driver-popover.driverjs-theme .driver-popover-title {
+  font: var(--font-poppins) !important;
+  color: var(--color-green-main);
+  font-size: 20px !important;
+  font-weight: 600 !important;
+}
+
+.driver-popover.driverjs-theme,
+.driver-popover.driverjs-theme .driver-popover-progress-text {
+  font: var(--font-poppins) !important;
+  color: var(--color-green-main);
+}
+
+.driver-popover-navigation-btns {
+  color: var(--color-green-main);
+}
+
+.driver-popover-description,
+.driver-popover-navigation-btns button {
+  font-family: var(--font-poppins) !important;
+}
+
+.driver-popover-description {
+  color: var(--color-green-dark);
+  text-wrap: pretty;
+}
+
+.driver-popover-navigation-btns button {
+  margin-left: 0px !important;
+}
+
+.driver-popover.driverjs-theme button {
+  flex: 1;
+  text-align: center;
+  background-color: var(--color-green-main) !important;
+  color: #ffffff;
+  border: 2px solid var(--color-green-main);
+  text-shadow: none;
+  font-size: 14px;
+  padding: 5px 8px;
+  border-radius: 6px;
+}
+
+.driver-popover.driverjs-theme button:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.driver-popover.driverjs-theme .driver-popover-navigation-btns {
+  justify-content: space-between;
+  gap: 3px;
+}
+
+.driver-popover.driverjs-theme .driver-popover-close-btn {
+  color: #9b9b9b;
+}
+
+.driver-popover.driverjs-theme .driver-popover-close-btn:hover {
+  color: #000;
+}
+
+.driver-popover.driverjs-theme .driver-popover-arrow-side-left.driver-popover-arrow {
+  border-left-color: var(--color-background-light);
+}
+
+.driver-popover.driverjs-theme .driver-popover-arrow-side-right.driver-popover-arrow {
+  border-right-color: var(--color-background-light);
+}
+
+.driver-popover.driverjs-theme .driver-popover-arrow-side-top.driver-popover-arrow {
+  border-top-color: var(--color-background-light);
+}
+
+.driver-popover.driverjs-theme .driver-popover-arrow-side-bottom.driver-popover-arrow {
+  border-bottom-color: var(--color-background-light);
+}

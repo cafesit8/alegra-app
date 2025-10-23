@@ -5,7 +5,7 @@
       <GameSearch :word="searchState.word" :is-loading="searchState.isLoading"
         :gemini-suggestion="geminiState.suggestions" :is-gemini-suggestion-loading="geminiState.isLoading"
         @search-gemini="getImages" @search="getImages" @update:word="searchState.word = $event" />
-      <GameResults :data="searchState.data" :is-loading="searchState.isLoading"
+      <GameResults v-if="searchState.data.length > 0" :data="searchState.data" :is-loading="searchState.isLoading"
         :selected-seller="searchState.selectedSeller" :has-results="searchState.data.length > 0"
         @select="handleSellerSelect" />
       <GameNoResults v-if="searchState.isError" />
