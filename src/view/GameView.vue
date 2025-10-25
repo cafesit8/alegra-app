@@ -70,10 +70,11 @@ async function getImages (geminiWord?: string) {
   searchState.value.word = geminiWord || searchState.value.word
   searchState.value.isLoading = true
   searchState.value.data = []
+  const numberOfSellers = sellers.value.length
 
   try {
-    await getSuggestion()
-    const images = await getimageFromUnsplash(searchWord)
+    // await getSuggestion()
+    const images = await getimageFromUnsplash(searchWord, numberOfSellers)
     processImages(images)
   } catch (error) {
     handleUnsplashError(error)

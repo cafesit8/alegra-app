@@ -23,7 +23,7 @@ const ModalWinner = defineAsyncComponent(() => import('@/components/ModalWinner.
 .aurora-container {
   width: 100%;
   height: 500px;
-  position: relative;
-  overflow: hidden;
+  position: sticky;
+  overflow: auto;
 }
 </style>

@@ -3,9 +3,12 @@ import { UnsplashError, validateUnsplashErros } from './handle-erros'
 import { Image, RootUnsplash } from '@/types/unsplash'
 import { KEY_UNSPLASH } from '@/enviroment'
 
-export async function getimageFromUnsplash(word: string): Promise<Image[]> {
+export async function getimageFromUnsplash(
+  word: string,
+  numberOfSellers: number,
+): Promise<Image[]> {
   try {
-    const URL = `${URL_UNSPLASH}?page=1&per_page=3&orientation=landscape&query=${word}`
+    const URL = `${URL_UNSPLASH}?page=1&per_page=${numberOfSellers}&orientation=landscape&query=${word}`
 
     validateUnsplashErros(word)
 
