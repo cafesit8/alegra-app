@@ -36,10 +36,11 @@ import { getSellers } from '@/services/sellers/sellers.service';
 import { SellersError } from '@/services/sellers/handle.erros';
 import { getimageFromUnsplash } from '@/services/unsplash/unspash.service';
 import { UnsplashError } from '@/services/unsplash/handle-erros';
-// import { getGeminiSuggestions } from '@/services/gemini/gemini.service';
-// import { GeminiError } from '@/services/gemini/handle-errors';
+import { getGeminiSuggestions } from '@/services/gemini/gemini.service';
+import { GeminiError } from '@/services/gemini/handle-errors';
 import type { ImageData } from '@/types/images';
 import type { Image } from '@/types/unsplash';
+import { GEMINI_ENABLED } from '@/enviroment';
 
 const store = useCounterStore()
 
@@ -73,7 +74,7 @@ async function getImages (geminiWord?: string) {
   const numberOfSellers = sellers.value.length
 
   try {
-    // await getSuggestion()
+    if (GEMINI_ENABLED) await getSuggestion()
     const images = await getimageFromUnsplash(searchWord, numberOfSellers)
     processImages(images)
   } catch (error) {
@@ -83,21 +84,21 @@ async function getImages (geminiWord?: string) {
   }
 }
 
-// async function getSuggestion () {
-//   const word = searchState.value.word.trim()
-//   geminiState.value.suggestions = []
-//   if (!word) return
+async function getSuggestion () {
+  const word = searchState.value.word.trim()
+  geminiState.value.suggestions = []
+  if (!word) return
 
-//   geminiState.value.isLoading = true
-//   try {
-//     const suggestions = await getGeminiSuggestions(word)
-//     geminiState.value.suggestions = suggestions
-//   } catch (error) {
-//     handleGeminiError(error)
-//   } finally {
-//     geminiState.value.isLoading = false
-//   }
-// }
+  geminiState.value.isLoading = true
+  try {
+    const suggestions = await getGeminiSuggestions(word)
+    geminiState.value.suggestions = suggestions
+  } catch (error) {
+    handleGeminiError(error)
+  } finally {
+    geminiState.value.isLoading = false
+  }
+}
 
 function resetSearchState () {
   searchState.value.isError = false
@@ -125,13 +126,13 @@ function handleUnsplashError (error: unknown) {
   }
 }
 
-// function handleGeminiError (error: unknown) {
-//   if (error instanceof GeminiError) {
-//     console.error('Gemini Error:', error.message)
-//   } else {
-//     console.error('Unexpected Gemini error:', error)
-//   }
-// }
+function handleGeminiError (error: unknown) {
+  if (error instanceof GeminiError) {
+    console.error('Gemini Error:', error.message)
+  } else {
+    console.error('Unexpected Gemini error:', error)
+  }
+}
 
 function resetGame () {
   searchState.value.word = ''
