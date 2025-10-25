@@ -38,6 +38,8 @@ export async function getimageFromUnsplash(
     const data: RootUnsplash = await response.json()
 
     if (!data.results.length) throw new UnsplashError('Unsplash API no results', response.status)
+    if (data.results.length < numberOfSellers)
+      throw new UnsplashError('Unsplash API no enough results', response.status)
 
     return data.results
   } catch (error) {

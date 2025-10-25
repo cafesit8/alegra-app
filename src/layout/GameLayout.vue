@@ -1,5 +1,5 @@
 <template>
-  <div class="aurora-container relative w-full min-h-dvh bg-background-light grid place-items-center p-5">
+  <div class="aurora-container relative w-full min-h-dvh bg-background-light grid place-items-center p-5 sm:p-10">
     <AuroraAnimate :color-stops="['#cffcea', '#a3f7d9', '#cffcea']" :amplitude="0.9" :blend="1" :speed="1"
       :intensity="0.3" class="w-full h-full" />
     <CardCounter />
